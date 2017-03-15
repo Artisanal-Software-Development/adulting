@@ -95,9 +95,9 @@ summary(test_data)
 # convert train and test data to matrix and extract response vector
 options('na.action' = na.omit)
 train_x <- model.matrix(response ~ ., train_data)[, -1] # exclude intercept
-train_response <- train_data$response[rownames(train_x)]
+train_response <- train_data$response[as.numeric(rownames(train_x))]
 test_x <- model.matrix(response ~ ., test_data)[, -1]
-test_response <- test_data$response[rownames(test_x)]
+test_response <- test_data$response[as.numeric(rownames(test_x))]
 
 write.csv(train_x, file = '~/Desktop/adulting/data/cleaned/train_x.csv', 
           row.names = FALSE)
