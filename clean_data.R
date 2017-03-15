@@ -93,7 +93,7 @@ summary(train_data)
 summary(test_data)
 
 # convert train and test data to matrix and extract response vector
-options('na.options' = na.pass)
+options('na.action' = na.pass)
 train_x <- model.matrix(response ~ ., train_data)[, -1] # exclude intercept
 train_response <- train_data$response
 test_x <- model.matrix(response ~ ., test_data)[, -1]
